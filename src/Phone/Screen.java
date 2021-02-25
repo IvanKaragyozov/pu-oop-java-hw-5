@@ -19,7 +19,8 @@ public class Screen extends JFrame {
     @Override
     // Visualises every pixel 1 by 1
     public void paint(Graphics g){
-        g.translate(10,35);
+
+        g.translate(10,35); // Corrects the size of the window
 
         for(int row = 0; row < 64; row++){
             for(int col = 0; col < 64; col++){
