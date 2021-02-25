@@ -2,68 +2,63 @@ package Phone;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class Pixels extends JFrame {
 
-    int row;
-    int col;
-    int tileSize;
-    int tileX;
-    int tileY;
+    private  int row;
+    private  int col;
+    private final int pixelSize;
+    private final int pixelX;
+    private final int pixelY;
 
-    String RED = "RED";
 
-    public void Pixels(int row, int col, Graphics g) {
+    public Pixels(int row, int col){
 
-        this.row = row;
-        this.col = col;
-        this.tileSize = 100;
+        this.row        = row;
+        this.col        = col;
+        this.pixelSize  = 10;
 
-        this.tileX = this.col * this.tileSize;
-        this.tileY = this.row * this.tileSize;
+        this.pixelX = this.col * this.pixelSize;
+        this.pixelY = this.row * this.pixelSize;
 
-        for(this.row = 0; this.row < 64; this.row++){
-            for(this.col = 0; this.col < 64; this.col++){
+    }
 
+    public void renderPixels(Graphics g) {
+
+        setPixelColor(pixelX, pixelY, g);
+
+    }
+
+    public void setPixels(Graphics g){
+        renderPixels(g);
+    }
+
+
+    void setPixelColor (int x, int y , Graphics g){
+        Random random = new Random();
+        switch (random.nextInt(3)) {
+            case 0 -> {
                 g.setColor(Color.RED);
-                g.fillRect(tileX,tileY,tileSize,tileSize);
-
+                g.fillRect(x, y, this.pixelSize, this.pixelSize);
+                g.setColor(Color.BLACK);
+                g.drawRect(x, y, this.pixelSize, this.pixelSize);
+            }
+            case 1 -> {
+                g.setColor(Color.BLUE);
+                g.fillRect(x, y, this.pixelSize, this.pixelSize);
+                g.setColor(Color.BLACK);
+                g.drawRect(x, y, this.pixelSize, this.pixelSize);
+            }
+            case 2 -> {
+                g.setColor(Color.GREEN);
+                g.fillRect(x, y, this.pixelSize, this.pixelSize);
+                g.setColor(Color.BLACK);
+                g.drawRect(x, y, this.pixelSize, this.pixelSize);
             }
         }
-
-
     }
- //  public Pixels(Graphics g){
 
- //      for(int row = 0; row < 64; row++){
- //          for(int col = 0; col < 64; col++){
-
- //              g.setColor(Color.RED);
- //              g.fillRect(tileX,tileY,tileSize,tileSize);
-
- //          }
- //      }
-
- //  }
- //  public void setPixels(Graphics g){
- //      Pixels(g);
- //  }
-
-
-    // Sets every red pixel
-    void setTileColor (int x, int y , Graphics g, String color) {
-        switch (color) {
-            case "RED":
-                g.setColor(Color.RED);
-                g.fillRect(x, y, this.tileSize, this.tileSize);
-                g.setColor(Color.BLACK);
-                g.drawRect(x, y, this.tileSize, this.tileSize);
-                break;
-
-
-        }
-    }
 
 }
-
 
