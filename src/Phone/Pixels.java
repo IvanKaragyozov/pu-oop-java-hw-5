@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Pixels extends JFrame {
 
-    private  int row;
-    private  int col;
+    private final int row;
+    private final int col;
     private final int pixelSize;
     private final int pixelX;
     private final int pixelY;
@@ -35,6 +35,9 @@ public class Pixels extends JFrame {
     }
 
 
+    /**
+     * Sets color for every pixel and randomises them on the screen
+     */
     void setPixelColor (int x, int y , Graphics g){
         Random random = new Random();
         switch (random.nextInt(3)) {
@@ -61,4 +64,3 @@ public class Pixels extends JFrame {
 
 
 }
-
