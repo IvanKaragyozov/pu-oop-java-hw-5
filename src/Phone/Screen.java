@@ -10,25 +10,22 @@ public class Screen extends JFrame {
      */
 
     public Screen() {
-        this.setSize(640,640);
-        this.setVisible(true);
+        this.setSize(660,685);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
+        this.setVisible(true);
     }
 
     @Override
     // Visualises every pixel 1 by 1
     public void paint(Graphics g){
-
-        super.paint(g);
+        g.translate(10,35);
 
         for(int row = 0; row < 64; row++){
             for(int col = 0; col < 64; col++){
 
-                
-
-
-
+                 Pixels pixels = new Pixels(row, col);
+                 pixels.setPixels(g);
 
 
 
