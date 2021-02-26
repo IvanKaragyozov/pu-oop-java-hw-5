@@ -6,7 +6,7 @@ import java.awt.*;
 public class Screen extends JFrame {
 
     /**
-     *  Visualises a window with 640 by 640 pixels
+     *  Visualises a window with 660 by 685 pixels
      */
 
     public Screen() {
@@ -20,7 +20,7 @@ public class Screen extends JFrame {
     // Visualises every pixel 1 by 1
     public void paint(Graphics g){
 
-        g.translate(10,35); // Corrects the size of the window
+        g.translate(10,35); // Corrects the size of the window to be even for each side
 
         for(int row = 0; row < 64; row++){
             for(int col = 0; col < 64; col++){
